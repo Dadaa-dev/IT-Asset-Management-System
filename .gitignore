@@ -1,0 +1,18 @@
+# Binaries & executables
+*.exe
+*.exe.exe
+cloudflared*
+
+# Temp & test scripts
+get_entries.php
+check_gform_urls.php
+dump_gform_html.php
+test_gform.php
+apply_settings.php
+reset_settings.php
+
+# Operating system / IDE files
+.vscode/
+*.log
+Thumbs.db
+.DS_Store

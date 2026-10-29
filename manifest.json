@@ -1,0 +1,51 @@
+{
+  "name": "AssetVault SPIST",
+  "short_name": "AssetVault",
+  "description": "SPIST IT Asset Management System — Track, Monitor, and Report school assets.",
+  "start_url": "/asset_management/index.php",
+  "scope": "/asset_management/",
+  "display": "standalone",
+  "background_color": "#0a0d0b",
+  "theme_color": "#d4af37",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": ["education", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/assetvault-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Home",
+      "description": "Go to Dashboard",
+      "url": "/asset_management/dashboard.php",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Report Concern",
+      "short_name": "Report",
+      "description": "Report an asset concern",
+      "url": "/asset_management/report_concern.php",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
+}
