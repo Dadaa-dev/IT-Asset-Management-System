@@ -24,7 +24,7 @@ $filterSt = trim($_GET['status'] ?? '');
 $where    = $filterSt ? "WHERE c.status='".mysqli_real_escape_string($conn,$filterSt)."'" : '';
 
 $concerns = $conn->query(
-    "SELECT c.*,i.name AS item_name,i.asset_code AS item_code,u.gmail AS reporter_email,u.full_name AS reporter_name,u2.gmail AS resolved_by_email
+    "SELECT c.*,i.name AS item_name,i.asset_code AS item_code,u.gmail AS reporter_email,COALESCE(NULLIF(c.reporter_name,''),u.full_name,u.gmail) AS reporter_name,u2.gmail AS resolved_by_email
      FROM concerns c
      LEFT JOIN items i ON i.id=c.item_id
      JOIN users u ON u.id=c.user_id
@@ -66,7 +66,7 @@ page_top('Manage Concerns', null, 'concerns');
     <div class="concern-header">
       <div>
         <h3><?= e($c['title']) ?></h3>
-        <p class="muted">👤 <?= e($c['reporter_name']??$c['reporter_email']) ?> &bull; <?= date('M j, Y g:i a',strtotime($c['created_at'])) ?></p>
+        <p class="muted">👤 <?= e($c['reporter_name']??$c['reporter_email']) ?> &bull; <?= date('M j, Y g:i a',strtotime($c['created_at'])) ?><?php if (($c['source']??'internal')==='google_form'): ?> &bull; <span class="badge">Google Form</span><?php endif; ?></p>
         <?php if ($c['item_name']): ?><p class="muted">📦 <?= e($c['item_name']) ?> · <?= e($c['item_code']) ?></p><?php endif; ?>
       </div>
       <div class="concern-badges">
